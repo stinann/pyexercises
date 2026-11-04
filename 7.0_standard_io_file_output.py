@@ -29,11 +29,14 @@ DELIVERABLE
     This file, plus the CSV your program produced.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out, file name and columns:
-# 4. Why these columns, and what this file is for:
-
+# 1. In: First name, last name, date of birth and student number, typed by the user.
+# 2. Process: The program checks each answer and asks again if it's not OK
+# (empty names or commas, wrong date format, letters in the student number).
+# If the file doesn't exist yet, it writes the header line first.
+# Then it adds the new entry at the end of the file.
+# 3. Out: The file 7.0_student_data.csv where columns are: 
+# First Name, Last Name, Date of Birth, Student Number
+# 4. Why these columns: To get basic information about a person and create data about it.
 
 # Your code below
 print("Please fill in the following details:")
@@ -47,3 +50,5 @@ with open ("7.0_student_data.csv", "a", newline="") as file:
     file.write(first_name + "," + last_name + "," + birth + "," + student_number + "\n")
 
     print("Data saved successfully!")
+
+# Everything works properly. Data printed correctly into the other file.    
