@@ -26,35 +26,45 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# The program uses a list of marketing campaign budgets.
+# 1. In: I used the list of marketing campaign budgets in euros, which I created
+# previously in exercise 4.0.
+#
+# 2. Process: The function adds up the budgets and divides the total
+# by the number of campaigns.
+#
+# 3. Out: The average budget per campaign in euros.
+#
+# 4. My function: It is called "average_budget". It tells exactly what it returns:
+# the average budget of the campaigns in the list.
+#
+# Why return rather than print: A returned value can be stored in a
+# variable, compared, or used in further calculations. For example
+# to check whether a new campaign is above or below average.
+# A printed value only appears on the screen and the program
+# can't use it anymore.
+#
+# Empty list check: Function "average_budget()"" returns 0 instead of crashing.
+# Without the check, Python would divide by zero and raise an error.
+# I think returning 0 is acceptable, because no campaigns means no
+# money spent per campaign. However, it could be misleading in a report,
+# so it should be explained there.
 
-# 2. Process:
-# The program displays the list, selects one budget, sorts the budgets and calculates their total.
 
-# 3. Out:
-# The program displays the original list, one budget, the sorted list and the total budget.
-
-# 4. What my list is about, and what I computed from it:
-# My list contains marketing campaign budgets in euros.
-# I calculated the total because it shows the combined budget of all campaigns.
-
-
-# Your code below
-
-# Create a list of marketing campaign budgets.
 budgets = [400, 500, 600, 700, 800, 900, 1000, 1100]
 
-# Print the whole list.
-print("All campaign budgets:", budgets)
 
-# Print one item from the list.
-print("One campaign budget:", budgets[3])
+def average_budget(budget_list):
+    """Returns the average campaign budget, or 0 for an empty list."""
+    if len(budget_list) == 0:
+        return 0
+    return sum(budget_list) / len(budget_list)
 
-# Sort the list.
-budgets.sort()
-print("Sorted budgets:", budgets)
 
-# Calculate the total of all budgets.
-total = sum(budgets)
-print("Total budget:", total)
+# Three calls with different inputs
+all_campaigns = average_budget(budgets)          # all eight campaigns
+small_campaigns = average_budget(budgets[:4])    # the four smallest
+no_campaigns = average_budget([])                # empty list
+
+print("Average budget, all campaigns:", all_campaigns, "€")
+print("Average budget, smallest four:", small_campaigns, "€")
+print("Average budget, no campaigns:", no_campaigns, "€")

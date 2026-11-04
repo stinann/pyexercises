@@ -26,33 +26,45 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
-# 4. My function name, and why return rather than print:
+# 1. In: I used the list of marketing campaign budgets in euros, which I created
+# previously in exercise 4.0.
+#
+# 2. Process: The function adds up the budgets and divides the total
+# by the number of campaigns.
+#
+# 3. Out: The average budget per campaign in euros.
+#
+# 4. My function: It is called "average_budget". It tells exactly what it returns:
+# the average budget of the campaigns in the list.
+#
+# Why return rather than print: A returned value can be stored in a
+# variable, compared, or used in further calculations. For example
+# to check whether a new campaign is above or below average.
+# A printed value only appears on the screen and the program
+# can't use it anymore.
+#
+# Empty list check: Function "average_budget()" returns 0 instead of crashing.
+# Without the check, Python would divide by zero and raise an error.
+# I think returning 0 is acceptable, because no campaigns means no
+# money spent per campaign. However, it could be misleading in a report,
+# so it should be explained there.
 
 
-# Your code below
-def greet():
-    print ("Hello, World!")
-    print("Hello, World 2!")
-print ("Hello, World!")
-greet()
-greet()
+budgets = [400, 500, 600, 700, 800, 900, 1000, 1100]
 
-print("-" * 30)
 
-def greet_person(name):
-    print("Hello,", name)
-    
-greet_person("Alice")
-greet_person("Bob")
+def average_budget(budget_list):
+    """Returns the average campaign budget, or 0 for an empty list."""
+    if len(budget_list) == 0:
+        return 0
+    return sum(budget_list) / len(budget_list)
 
-def add(first, second):
-    return first + second
 
-result = add(2, 3)
-print("2 + 3 =", result)
-print("used directly:", add(10, 5) * 2)
+# Three calls with different inputs
+all_campaigns = average_budget(budgets)          # all eight campaigns
+small_campaigns = average_budget(budgets[:4])    # the four smallest
+no_campaigns = average_budget([])                # empty list
 
-print("-" * 30)
+print("Average budget, all campaigns:", all_campaigns, "€")
+print("Average budget, smallest four:", small_campaigns, "€")
+print("Average budget, no campaigns:", no_campaigns, "€")
