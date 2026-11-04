@@ -15,7 +15,7 @@ Usage
     python tutor.py                              start a conversation, /quit to leave
     python tutor.py "how do I read a semicolon csv"
     python tutor.py --check                      test your setup
-    python tutor.py --log final-project/CONVERSATION.md
+    /
 
 Setup, once, about two minutes
 ------------------------------
